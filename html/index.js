@@ -26,3 +26,20 @@ $('#main').on('shown.bs.collapse', function () {
 $('#main').on('hidden.bs.collapse', function () {
   $('#button').show();
 });
+
+ // datatableの日本語化
+$(function(){
+  console.log("1");
+  $.extend( $.fn.dataTable.defaults, {
+        language: {
+            url: "http://cdn.datatables.net/plug-ins/9dcbecd42ad/i18n/Japanese.json"
+        }
+  });
+  $("#stockTable").DataTable({
+    lengthChange: false,
+    searching: false,
+    info: false,
+    paging: false,
+    order: [ [ 0, "desc" ] ]
+  });
+});

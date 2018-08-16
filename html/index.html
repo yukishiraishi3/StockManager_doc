@@ -9,10 +9,13 @@
 
   <!-- Bootstrap CSS -->
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.2/css/bootstrap.min.css" integrity="sha384-PsH8R72JQ3SOdhVi3uxftmaW6Vc51MKb0q5P2rRUpPvrszuE4W1povHYgTpBfshb" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://cdn.datatables.net/t/bs-3.3.6/jqc-1.12.0,dt-1.10.11/datatables.min.css"/>
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.7.1/css/bootstrap-datepicker.min.css">
+  <link rel="stylesheet" href="index.css">
   <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.3/umd/popper.min.js" integrity="sha384-vFJXuSJphROIrBnz7yo7oB41mKfc8JzQZiCq4NCceLEaO4IHwicKwpJf9c9IpFgh" crossorigin="anonymous"></script>
   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.2/js/bootstrap.min.js" integrity="sha384-alpBpkh1PFOepccYVYDB4do5UnbKysX5WZXm3XxPqe5iKTfUKjNkCk9SaVuEZflJ" crossorigin="anonymous"></script>
+  <script src="https://cdn.datatables.net/t/bs-3.3.6/jqc-1.12.0,dt-1.10.11/datatables.min.js"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.7.1/js/bootstrap-datepicker.min.js" charset="UTF-8">></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.7.1/locales/bootstrap-datepicker.ja.min.js"></script>
 
@@ -21,10 +24,10 @@
 <body>
   <nav class="navbar navbar-default px-0">
     <div class="navbar-header">
-      <h2 class="my-0">在庫管理システム</h1>
+      <h2 class="my-0">在庫管理システム</h2>
     </div>
-    <ul class="nav navbar-nav navbar-right">
-      <li>ユーザー名:<a href="#">ログアウト</a></li>
+    <ul class="nav navbar-nav">
+      <form class="form-inline"><li>ユーザー名:<a href="#">ログアウト</a></li></form>
     </ul>
   </nav>
 
@@ -99,8 +102,8 @@
         </div>
 
         <div class="col-12">
-          <p>1,000件中491～500件表示(50ページ/100ページ中)</p>
-          <table class="table table-hover">
+          <button>新規登録</button>
+          <table id="stockTable" class="table table-hover">
             <thead>
               <tr>
                 <th>商品名</th>
@@ -153,6 +156,7 @@
           		</li>
           	</ul>
           </nav>
+          <p>1,000件中491～500件表示(50ページ/100ページ中)</p>
         </div>
       </div>
     </div>
