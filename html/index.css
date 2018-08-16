@@ -1,3 +1,11 @@
-.header{
+/* .header{
   float: left;
+} */
+
+.app-header::before {
+  display: none !important;
+}
+
+.app-header::after {
+  display: none !important;
 }
