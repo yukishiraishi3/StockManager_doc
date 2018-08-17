@@ -24,10 +24,10 @@
 <body>
   <nav class="navbar navbar-default px-0 app-header">
     <div class="navbar-header">
-      <h2 class="my-0">在庫管理システム</h2>
+      <h2 class="mx-3 my-0">在庫管理システム</h2>
     </div>
     <ul class="nav navbar-nav">
-      <form class="form-inline"><li>ユーザー名:<a href="#">ログアウト</a></li></form>
+      <form class="form-inline mx-3"><li>ユーザー名:<a href="#">ログアウト</a></li></form>
     </ul>
   </nav>
 
@@ -38,103 +38,194 @@
     </div>
     <div class="col-10">
       <div class="row">
-        <div class="col-12">
-          <input type="text" size="50" maxlength="20" value="商品名を入力して下さい">
-          <button id="button" class="btn-sm">検索</button>
+        <div class="col-12 well">
+          <div class="form-inline">
+            <input type="text" size="50" maxlength="20" class="form-control input-sm" placeholder="商品名を入力して下さい">
+            <button id="button" class="btn btn-sm mx-3">検索</button>
+          </div>
+
           <div><a data-toggle="collapse" href="#main" aria-expanded="false" aria-controls="main">
             詳細検索
           </a></div>
 
-          <div id="main" class="collapse">
-
-            <div class="row">
-              <div class="col-4">
-                <p class="float-left">品種:</p>
-                <select name="kind" class="float-left">
+          <div id="main" class="collapse mt-3">
+            <div class="row my-2">
+              <div class="col-5 form-inline">
+                <label for="kind" class="control-label">品種:</label>
+                <select name="kind" id="kind" class="form-control p-0">
                   <option>品種を選択して下さい</option>
                   <option>その他</option>
                 </select>
               </div>
 
-              <div class="col-4">
-                <p class="float-left">在庫数:</p>
-                <input type="text" size="5" class="float-left">
-                <p class="float-left">～</p>
-                <input type="text" size="5" class="float-left">
+              <div class="col-5 form-inline">
+                <label for="amount" class="float-left">在庫数:</label>
+                <input id="amount" type="text" size="5" class="form-control float-left">
+                <p class="float-left mx-3">～</p>
+                <input type="text" size="5" class="form-control float-left">
               </div>
             </div>
 
-            <div class="row">
-              <div class="col-4">
-                <p class="float-left">コード:</p>
-                <input type="text" size="20" class="float-left">
+            <div class="row my-2">
+              <div class="col-5 form-inline">
+                <label for="code" class="float-left">コード:</label>
+                <input id="code" type="text" size="20" class="form-control float-left">
               </div>
 
+              <div class="col-5 form-inline">
+                <label for="jan" class="float-left">JANコード:</label>
+                <input id="jan" type="text" size="20" class="form-control float-left">
+              </div>
+            </div>
+
+            <div class="row my-2">
+              <div class="col-10 form-inline">
+                <label for="date">更新日:</label>
+                <div class="input-group date" id="from">
+                  <input id="date" type="text" class="form-control">
+                  <div class="input-group-addon">
+                    <span class="glyphicon glyphicon-calendar"></span>
+                  </div>
+                </div>
+                <p class="mx-5">～</p>
+                <div class="input-group date" id="to">
+                  <input type="text" class="form-control">
+                  <div class="input-group-addon">
+                    <span class="glyphicon glyphicon-calendar"></span>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <div class="row my-2">
+              <div class="col-5 form-inline">
+                <label for="user" class="float-left">更新者:</label>
+                <input id="user" type="text" size="20" class="form-control">
+              </div>
               <div class="col-5">
-                <p class="float-left">JANコード:</p>
-                <input type="text" size="20" class="float-left">
+                <button class="btn float-right">検索</button>
               </div>
-            </div>
-
-            <div class="row">
-              <p class="float-left">更新日:</p>
-              <div class="col-4 input-group date float-left" id="from">
-                <input type="text">
-                <div class="input-group-addon">
-                  <span class="glyphicon glyphicon-th"></span>
-                </div>
-              </div>
-              <p class="col-1 float-left">～</p>
-              <div class="col-3 input-group date" id="to">
-                <input type="text" class="float-left">
-                <div class="input-group-addon">
-                  <span class="glyphicon glyphicon-th"></span>
-                </div>
-              </div>
-            </div>
-
-            <div>
-              <p class="float-left">更新者:</p>
-              <input type="text" size="20">
-              <button class="btn-sm">詳細検索</button>
             </div>
           </div>
         </div>
 
-        <div class="col-12">
-          <button>新規登録</button>
-          <table id="stockTable" class="table table-hover">
-            <thead>
-              <tr>
-                <th>商品名</th>
-                <th>ふりがな</th>
-                <th>在庫数</th>
-                <th>品種</th>
-                <th>コード</th>
-                <th>JANコード</th>
-                <th>更新日</th>
-                <th>更新者</th>
-                <th>作成日</th>
-                <th>作成者</th>
-              </tr>
-            </thead>
-            <tbody>
-              <tr>
-                <td>商品</td>
-                <td>しょうひん</td>
-                <td>7</td>
-                <td>その他</td>
-                <td>1111</td>
-                <td>1111</td>
-                <td>8/8</td>
-                <td>山田</td>
-                <td>8/8</td>
-                <td>山田</td>
-              </tr>
-            </tbody>
-          </table>
+        <div class="col-12 text-center">
+          <div class="row">
+            <div class="col-10">
+              <button class="btn pull-right" data-toggle="modal" data-target="#signUp">新規登録</button>
+            </div>
+          </div>
+
+          <div id="signUp" class="modal fade">
+            <div class="modal-dialog">
+              <div class="modal-content">
+                <div class="modal-header">
+                  <h4 class="modal-title">新規登録</h4>
+                </div>
+                <div class="modal-body">
+                  <label for="newNmae">商品名(※必須)</label>
+                  <input id="newName" type="text" class="form-control mb-3">
+                  <label for="newRubi">ふりがな(※必須)</label>
+                  <input id="newRubi" type="text" class="form-control mb-3">
+                  <label for="newAmount">在庫数</label>
+                  <input id="newAmount" type="text" value="0" class="form-control mb-3">
+                  <label for="newKind">品種(※必須)</label>
+                  <select id="newKind" class="form-control mb-3 p-0">
+                    <option>品種を選択して下さい</option>
+                    <option>その他</option>
+                  </select>
+                  <label for="newCode">コード(※必須)</label>
+                  <input id="newCode" type="text" class="form-control mb-3">
+                  <label for="newJan">JANコード(任意)</label>
+                  <input id="newJan" type="text" class="form-control mb-3">
+                </div>
+                <div class="modal-footer">
+                  <button type="button" class="btn">登録</button>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div id="edit" class="modal fade">
+            <div class="modal-dialog">
+              <div class="modal-content">
+                <div class="modal-header">
+                  <h4 class="modal-title">編集</h4>
+                </div>
+                <div class="modal-body">
+                  <label for="newNmae">商品名</label>
+                  <input id="newName" type="text" value="商品" class="form-control mb-3">
+                  <label for="newRubi">ふりがな</label>
+                  <input id="newRubi" type="text" value="しょうひん" class="form-control mb-3">
+                  <label for="newKind">品種</label>
+                  <select id="newKind" class="form-control mb-3 p-0">
+                    <option>品種を選択して下さい</option>
+                    <option selected>その他</option>
+                  </select>
+                  <label for="newCode">コード</label>
+                  <input id="newCode" type="text" value="1111" class="form-control mb-3">
+                  <label for="newJan">JANコード</label>
+                  <input id="newJan" type="text" value="1111" class="form-control mb-3">
+                </div>
+                <div class="modal-footer">
+                  <button type="button" class="btn">登録</button>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div id="stock" class="modal fade">
+            <div class="modal-dialog">
+              <div class="modal-content">
+                <div class="modal-header">
+                  <h4 class="modal-title">在庫数変更</h4>
+                </div>
+                <div class="modal-body">
+                  <label for="newAmount">在庫数</label>
+                  <input id="newAmount" type="text" value="7" class="form-control mb-3">
+                </div>
+                <div class="modal-footer">
+                  <button type="button" class="btn">登録</button>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="table-responsive">
+            <table id="stockTable" class="table table-hover table-nowrap">
+              <thead>
+                <tr>
+                  <th>商品名</th>
+                  <th>ふりがな</th>
+                  <th>在庫数</th>
+                  <th>品種</th>
+                  <th>コード</th>
+                  <th>JANコード</th>
+                  <th>更新日</th>
+                  <th>更新者</th>
+                  <th>作成日</th>
+                  <th>作成者</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td><a href="#" data-toggle="modal" data-target="#edit">商品</a></td>
+                  <td>しょうひん</td>
+                  <td><a href="#" data-toggle="modal" data-target="#stock">7</a></td>
+                  <td>その他</td>
+                  <td>1111</td>
+                  <td>1111</td>
+                  <td>8/8</td>
+                  <td>山田</td>
+                  <td>8/8</td>
+                  <td>山田</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+
           <nav>
-          	<ul class="pagination justify-content-center">
+          	<ul class="pagination">
           		<li class="page-item">
           			<a class="page-link" href="#" aria-label="←">
           				<span aria-hidden="true">«</span>
