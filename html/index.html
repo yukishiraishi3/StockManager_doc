@@ -38,14 +38,14 @@
   <div class="row">
 
     <!-- メニュー部分 -->
-    <div class="col-2">
+    <div class="col-2 border p-2">
       <h3><u><a class="text-muted" href="#">在庫</a></u></h2>
     </div>
     <div class="col-10">
       <div class="row">
 
         <!-- 検索部分 -->
-        <div class="col-12 card bg-light p-2">
+        <div class="col-12 card bg-light m-1 p-2">
 
           <!-- 簡易検索部分 -->
           <div class="form-inline">
@@ -78,7 +78,7 @@
                   <label for="amount" class="col-sm-2 control-label">在庫数</label>
                   <div class="col-sm-10 form-inline">
                     <input id="amount" type="text" class="form-control">
-                    <p class="mx-3">～</p>
+                    <p class="mx-5">～</p>
                     <input type="text" class="form-control">
                   </div>
                 </div>
@@ -187,7 +187,7 @@
               <li class="page-item"><a class="page-link">...</a></li>
           		<li class="page-item"><a class="page-link" href="#">48</a></li>
           		<li class="page-item"><a class="page-link" href="#">49</a></li>
-          		<li class="active"><a class="page-link" href="#">50</a></li>
+          		<li class="page-item active"><a class="page-link" href="#">50</a></li>
           		<li class="page-item"><a class="page-link" href="#">51</a></li>
           		<li class="page-item"><a class="page-link" href="#">52</a></li>
               <li class="page-item"><a class="page-link">...</a></li>
@@ -220,28 +220,28 @@
           <div class="form-group form-inline">
             <label for="newNmae" class="col-sm-4 control-label">商品名<span class="text-danger">(※必須)</span></label>
             <div class="col-sm-8">
-              <input id="newName" type="text" class="form-control mb-3">
+              <input id="newName" type="text" class="form-control modal-width mb-3">
             </div>
           </div>
 
           <div class="form-group form-inline">
             <label for="newRubi" class="col-sm-4 control-label">ふりがな<span class="text-danger">(※必須)</span></label>
             <div class="col-sm-8">
-              <input id="newRubi" type="text" class="form-control mb-3">
+              <input id="newRubi" type="text" class="form-control modal-width mb-3">
             </div>
           </div>
 
           <div class="form-group form-inline">
-            <label for="newAmount" class="col-sm-4 control-label">在庫数</label>
+            <label for="newAmount" class="col-sm-4 control-label align-left">在庫数</label>
             <div class="col-sm-8">
-              <input id="newAmount" type="text" value="0" class="form-control mb-3">
+              <input id="newAmount" type="text" value="0" class="form-control modal-width mb-3">
             </div>
           </div>
 
           <div class="form-group form-inline">
             <label for="newKind" class="col-sm-4 control-label">カテゴリー</label>
             <div class="col-sm-8">
-              <select id="newKind" class="form-control mb-3 p-0">
+              <select id="newKind" class="form-control modal-width mb-3 p-0">
                 <option>カテゴリーを選択して下さい</option>
                 <option>その他</option>
               </select>
@@ -251,14 +251,14 @@
           <div class="form-group form-inline">
             <label for="newCode" class="col-sm-4 control-label">コード<span class="text-danger">(※必須)</span></label>
             <div class="col-sm-8">
-              <input id="newCode" type="text" class="form-control mb-3">
+              <input id="newCode" type="text" class="form-control modal-width mb-3">
             </div>
           </div>
 
           <div class="form-group form-inline">
             <label for="newJan" class="col-sm-4 control-label">JANコード(任意)</label>
             <div class="col-sm-8">
-              <input id="newJan" type="text" class="form-control mb-3">
+              <input id="newJan" type="text" class="form-control modal-width mb-3">
             </div>
           </div>
         </form>
@@ -283,21 +283,21 @@
           <div class="form-group form-inline">
             <label for="newNmae" class="col-sm-4 control-label">商品名<span class="text-danger">(※必須)</span></label>
             <div class="col-sm-8">
-              <input id="newName" type="text" class="form-control mb-3">
+              <input id="newName" type="text" class="form-control modal-width mb-3">
             </div>
           </div>
 
           <div class="form-group form-inline">
             <label for="newRubi" class="col-sm-4 control-label">ふりがな<span class="text-danger">(※必須)</span></label>
             <div class="col-sm-8">
-              <input id="newRubi" type="text" class="form-control mb-3">
+              <input id="newRubi" type="text" class="form-control modal-width mb-3">
             </div>
           </div>
 
           <div class="form-group form-inline">
             <label for="newKind" class="col-sm-4 control-label">カテゴリー</label>
             <div class="col-sm-8">
-              <select id="newKind" class="form-control mb-3 p-0">
+              <select id="newKind" class="form-control modal-width mb-3 p-0">
                 <option>カテゴリーを選択して下さい</option>
                 <option>その他</option>
               </select>
@@ -307,14 +307,14 @@
           <div class="form-group form-inline">
             <label for="newCode" class="col-sm-4 control-label">コード<span class="text-danger">(※必須)</span></label>
             <div class="col-sm-8">
-              <input id="newCode" type="text" class="form-control mb-3">
+              <input id="newCode" type="text" class="form-control modal-width mb-3">
             </div>
           </div>
 
           <div class="form-group form-inline">
             <label for="newJan" class="col-sm-4 control-label">JANコード(任意)</label>
             <div class="col-sm-8">
-              <input id="newJan" type="text" class="form-control mb-3">
+              <input id="newJan" type="text" class="form-control modal-width mb-3">
             </div>
           </div>
         </form>

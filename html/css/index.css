@@ -1,8 +1,23 @@
-
-.app-header::before {
+/* datatables実装時のフォーマット調整 */
+/* .app-header::before {
   display: none !important;
 }
 
 .app-header::after {
   display: none !important;
+} */
+
+.form-inline label {
+  justify-content: left;
+}
+
+/* 詳細検索欄のテキストボックスの配置の調整 */
+.mx-5 {
+  margin-right: 2.2rem !important;
+  margin-left: 2.2rem !important;
+}
+
+/* モーダル内のテキストボックスの長さの調整 */
+.modal-width{
+  width: 85% !important;
 }
