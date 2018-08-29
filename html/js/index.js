@@ -19,12 +19,22 @@ $('#to').datepicker({
     language:'ja'
 });
 
-$('#main').on('shown.bs.collapse', function () {
+$('#detailedSearch').on('shown.bs.collapse', function () {
   $('#button').hide();
 });
 
-$('#main').on('hidden.bs.collapse', function () {
+$('#detailedSearch').on('hidden.bs.collapse', function () {
   $('#button').show();
+});
+
+$('#signUp').on('show.bs.modal', function () {
+    $('#alert').hide();
+})
+
+$(function () {
+	$('#ragistration').on('click', function () {
+		$('#alert').show();
+	});
 });
 
 //  // datatableの日本語化

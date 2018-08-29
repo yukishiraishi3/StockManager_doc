@@ -54,11 +54,11 @@
           </div>
 
           <!-- 詳細検索部分 -->
-          <div><a data-toggle="collapse" href="#main" aria-expanded="false" aria-controls="main">
+          <div><a data-toggle="collapse" href="#detailedSearch" aria-expanded="false" aria-controls="detailedSearch">
             詳細検索
           </a></div>
 
-          <div id="main" class="collapse mt-3">
+          <div id="detailedSearch" class="collapse mt-3">
             <form class="form-horizontal">
 
               <div class="form-group my-3">
@@ -264,8 +264,11 @@
         </form>
       </div>
 
-      <div class="modal-footer">
-        <button type="button" class="btn">登録</button>
+      <div class="modal-footer multi_stage">
+        <div id="alert" class="alert alert-danger align-left" role="alert">
+          <strong>エラー</strong> - 必須項目を入力してください
+         </div>
+        <button id="ragistration" type="button" class="btn float-right">登録</button>
       </div>
     </div>
   </div>
