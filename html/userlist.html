@@ -1,0 +1,424 @@
+<!DOCTYPE html>
+<html lang="ja">
+
+  <head>
+    <title>ユーザー一覧</title>
+
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width , initial-scale=1">
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="lib/bootstrap.css">
+    <!-- <link rel="stylesheet" href="https://cdn.datatables.net/t/bs-3.3.6/jqc-1.12.0,dt-1.10.11/datatables.min.css"/> -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.7.1/css/bootstrap-datepicker.min.css">
+    <link rel="stylesheet" href="css/userList.css">
+    <script src="lib/jquery-3.3.1.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.3/umd/popper.min.js" integrity="sha384-vFJXuSJphROIrBnz7yo7oB41mKfc8JzQZiCq4NCceLEaO4IHwicKwpJf9c9IpFgh" crossorigin="anonymous"></script>
+    <script src="lib/bootstrap.bundle.js"></script>
+    <!-- <script src="https://cdn.datatables.net/t/bs-3.3.6/jqc-1.12.0,dt-1.10.11/datatables.min.js"></script> -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.7.1/js/bootstrap-datepicker.min.js" charset="UTF-8">></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.7.1/locales/bootstrap-datepicker.ja.min.js"></script>
+
+  </head>
+
+
+  <body>
+    <header>
+      <nav  class="navbar navbar-default px-0 app-header mb-2">
+        <div class="navbar-header ">
+          <h2 class="mx-3 my-0">ユーザー一覧</h2>
+        </div>
+        <ul class="nav navbar-nav">
+          <form class="form-inline mx-3"><li>ユーザー名:<a href="#">ログアウト</a></li></form>
+        </ul>
+      </nav>
+    </header>
+
+    <main>
+      <div class="container-fluid">
+        <div class="row">
+          <!-- メニュー部分 -->
+          <div class="col-2 text-center bg-info">
+            <h3><u><a class="text-muted" href="#">在庫一覧</a></u></h3>
+          </div>
+
+          <!-- 右カラム -->
+          <div class="col-10 well">
+
+            <!-- 簡易検索 -->
+            <div class="form-inline">
+              <input type="text" size="50" class="form-control input-sm" placeholder="名前">
+              <button id="button" class="btn mx-3 bg-primary text-white">検索</button>
+            </div>
+
+            <!-- 詳細検索ボタン -->
+            <div><a data-toggle="collapse" href="#main" aria-expanded="false" aria-control="main">
+              詳細検索
+            </a></div>
+
+            <!-- 詳細検索中身 -->
+            <div id="main" class="collapse mt-3">
+              <form class="form-horizontal">
+                <div class="form-group my-3">
+                  <div class="form-inline">
+                    <label for="kind" class="col-sm-2 control-label">社員番号</label>
+                    <input id="number" type="text" class="form-control">
+                  </div>
+                </div>
+
+                <div class="form-group my-2">
+                  <div class="form-inline">
+                    <label for="telno" class="col-sm-2 control-label">電話番号</label>
+                    <input id="telno" type="text" class="form-control">
+                  </div>
+                </div>
+
+                <div class="form-group my-2">
+                  <div class="form-inline">
+                    <label for="kind" class="col-sm-2 control-label">所属部署</label>
+                    <div class="col-sm-10 text-left p-0">
+                      <select id="division" class=" form-control p-0" name="division">
+                        <option>部署を選択してください</option>
+                        <option>経理部</option>
+                        <option>人事部</option>
+                        <option>企業総括部</option>
+                      </select>
+                    </div>
+                  </div>
+                </div>
+
+                <div class="form-group my-2">
+                  <div class="form-inline">
+                    <label for="telno" class="col-sm-2 control-label">性別</label>
+                    <div class="col-sm-10 p-0">
+                      <input type="radio" name="sex" value="1">男性
+                      <input type="radio" name="sex" value="2">女性
+                    </div>
+                  </div>
+                </div>
+
+                <div class="form-group my-2">
+                  <div class="form-inline">
+                    <div class="col-sm-6 text-right">
+                      <button class="btn bg-primary text-white">検索</button>
+                    </div>
+                  </div>
+                </div>
+              </form>
+            </div>
+
+            <!-- 新規登録ボタン→モーダルへ -->
+            <div class="col-12 text-center">
+              <button class="btn btn-sm my-4 bg-primary text-white" data-toggle="modal" data-target="#sinki">新規登録</button>
+            </div>
+
+            <!-- 新規登録モーダル -->
+            <div id="sinki" class="modal fade">
+              <div class="modal-dialog">
+                <div class="modal-content">
+                  <div class="modal-header">
+                    <h4 class="modal-title">新規登録</h4>
+                  </div>
+
+                  <div class="modal-body">
+                    <form class="form-horizontal">
+
+                      <div class="form-group form-inline">
+                        <label for="newName" class="name col-sm-4 control-label">名前</label>
+                        <div class="col-sm-8">
+                          <input type="text" class="form-control modal-width mb-3">
+                        </div>
+                      </div>
+
+                      <div class="form-group form-inline">
+                        <label for="newHurigana" class="hurigana col-sm-4 control-label">ふりがな</label>
+                        <div class="col-sm-8">
+                          <input type="text" class="form-control modal-width mb-3">
+                        </div>
+                      </div>
+
+                      <div class="form-group form-inline">
+                        <label for="newNo" class="syainNo col-sm-4 control-label">社員番号</label>
+                        <div class="col-sm-8">
+                          <input type="text" class="form-control modal-width mb-3">
+                        </div>
+                      </div>
+
+                      <div class="form-group form-inline">
+                        <label for="newTelNo" class="telNo col-sm-4 control-label">電話番号</label>
+                        <div class="col-sm-8">
+                          <input type="text" class="form-control modal-width mb-3">
+                        </div>
+                      </div>
+
+                      <div class="form-group form-inline">
+                        <label for="newDivision" class="divison col-sm-4 control-label">所属部署</label>
+                        <div class="col-sm-8">
+                          <select id="newDivision" class="form-control modal-width mb-3 p-0">
+                            <option>所属部署を選択してください</option>
+                            <option>経理部</option>
+                            <option>人事部</option>
+                            <option>企業総括部</option>
+                          </select>
+                        </div>
+                      </div>
+
+                      <div class="form-group form-inline">
+                        <label for="newSex" class="sex col-sm-4 control-label">性別</label>
+                        <div class="col-sm-8">
+                            <input type="radio" name="sex" value="1">男性
+                            <input type="radio" name="sex" value="2">女性
+                          </select>
+                        </div>
+                      </div>
+                    </form>
+                  </div>
+                  <div class="modal-footer">
+                    <button type="button" class="btn bg-primary text-white">登録</button>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+
+            <!-- 一覧表示 -->
+            <div class="table-responsive text-center">
+              <table id="userList" class="table table-hover table-nowrap">
+                <thead>
+                  <tr>
+                    <th>社員番号</th>
+                    <th>名前</th>
+                    <th>なまえ</th>
+                    <th>性別</th>
+                    <th>電話番号</th>
+                    <th>所属部署</th>
+                    <th>登録日</th>
+                  </tr>
+                </thead>
+                <tbody>
+
+                  <tr>
+                    <td>0001</td>
+                    <td>  <a href="#" data-toggle="modal" data-target="#edit">山田太郎</a></td>
+                    <td>やまだたろう</td>
+                    <td>男性</td>
+                    <td>000-0000-1000</td>
+                    <td>経理部</td>
+                    <td>12/03</td>
+                  </tr>
+
+                  <tr>
+                    <td>0002</td>
+                    <td>  <a href="#" data-toggle="modal" data-target="#edit">鈴木一郎</a></td>
+                    <td>すずきいちろう</td>
+                    <td>男性</td>
+                    <td>000-0000-1234</td>
+                    <td>人事部</td>
+                    <td>12/04</td>
+                  </tr>
+
+                  <tr>
+                    <td>0003</td>
+                    <td>  <a href="#" data-toggle="modal" data-target="#edit">山田花子</a></td>
+                    <td>やまだはなこ</td>
+                    <td>女性</td>
+                    <td>000-0000-3456</td>
+                    <td>経理部</td>
+                    <td>12/04</td>
+                  </tr>
+
+                  <tr>
+                    <td>0004</td>
+                    <td>  <a href="#" data-toggle="modal" data-target="#edit">斉藤一</a></td>
+                    <td>さいとうはじめ</td>
+                    <td>男性</td>
+                    <td>000-1111-1000</td>
+                    <td>企業総括部</td>
+                    <td>12/06</td>
+                  </tr>
+
+                  <tr>
+                    <td>0005</td>
+                    <td>  <a href="#" data-toggle="modal" data-target="#edit">斉藤一</a></td>
+                    <td>さいとうはじめ</td>
+                    <td>男性</td>
+                    <td>000-1111-1000</td>
+                    <td>企業総括部</td>
+                    <td>12/06</td>
+                  </tr>
+
+                  <tr>
+                    <td>0006</td>
+                    <td>  <a href="#" data-toggle="modal" data-target="#edit">斉藤一</a></td>
+                    <td>さいとうはじめ</td>
+                    <td>男性</td>
+                    <td>000-1111-1000</td>
+                    <td>企業総括部</td>
+                    <td>12/06</td>
+                  </tr>
+
+                  <tr>
+                    <td>0007</td>
+                    <td>  <a href="#" data-toggle="modal" data-target="#edit">斉藤一</a></td>
+                    <td>さいとうはじめ</td>
+                    <td>男性</td>
+                    <td>000-1111-1000</td>
+                    <td>企業総括部</td>
+                    <td>12/06</td>
+                  </tr>
+
+                  <tr>
+                    <td>0004</td>
+                    <td>  <a href="#" data-toggle="modal" data-target="#edit">斉藤一</a></td>
+                    <td>さいとうはじめ</td>
+                    <td>男性</td>
+                    <td>000-1111-1000</td>
+                    <td>企業総括部</td>
+                    <td>12/06</td>
+                  </tr>
+
+                  <tr>
+                    <td>0008</td>
+                    <td>  <a href="#" data-toggle="modal" data-target="#edit">斉藤一</a></td>
+                    <td>さいとうはじめ</td>
+                    <td>男性</td>
+                    <td>000-1111-1000</td>
+                    <td>企業総括部</td>
+                    <td>12/06</td>
+                  </tr>
+
+                  <tr>
+                    <td>0009</td>
+                    <td>  <a href="#" data-toggle="modal" data-target="#edit">斉藤一</a></td>
+                    <td>さいとうはじめ</td>
+                    <td>男性</td>
+                    <td>000-1111-1000</td>
+                    <td>企業総括部</td>
+                    <td>12/06</td>
+                  </tr>
+
+                  <tr>
+                    <td>0010</td>
+                    <td>  <a href="#" data-toggle="modal" data-target="#edit">斉藤一</a></td>
+                    <td>さいとうはじめ</td>
+                    <td>男性</td>
+                    <td>000-1111-1000</td>
+                    <td>企業総括部</td>
+                    <td>12/06</td>
+                  </tr>
+
+                </tbody>
+              </table>
+
+            </div>
+
+            <!-- 編集モーダル -->
+            <div id="edit" class="modal fade">
+              <div class="modal-dialog">
+                <div class="modal-content">
+                  <div class="modal-header">
+                    <h4 class="modal-title">ユーザー編集</h4>
+                  </div>
+
+                  <div class="modal-body">
+                    <form class="form-horizontal">
+
+                      <div class="form-group form-inline">
+                        <label for="newName" class="col-sm-4 control-label">名前</label>
+                        <div class="col-sm-8">
+                          <input type="text" class="form-control modal-width mb-3">
+                        </div>
+                      </div>
+
+                      <div class="form-group form-inline">
+                        <label for="newHurigana" class="col-sm-4 control-label">ふりがな</label>
+                        <div class="col-sm-8">
+                          <input type="text" class="form-control modal-width mb-3">
+                        </div>
+                      </div>
+
+                      <div class="form-group form-inline">
+                        <label for="newNo" class="col-sm-4 control-label">社員番号</label>
+                        <div class="col-sm-8">
+                          <input type="text" class="form-control modal-width mb-3">
+                        </div>
+                      </div>
+
+                      <div class="form-group form-inline">
+                        <label for="newTelNo" class="col-sm-4 control-label">電話番号</label>
+                        <div class="col-sm-8">
+                          <input pattern="\d{2,4}-\d{3,4}-\d{3,4}" type="text" class="form-control modal-width mb-3">
+                        </div>
+                      </div>
+
+                      <div class="form-group form-inline">
+                        <label for="newDivision" class="col-sm-4 control-label">所属部署</label>
+                        <div class="col-sm-8">
+                          <select id="newDivision" class="form-control modal-width mb-3 p-0">
+                            <option>所属部署を選択してください</option>
+                            <option>経理部</option>
+                            <option>人事部</option>
+                            <option>企業総括部</option>
+                          </select>
+                        </div>
+                      </div>
+
+                      <div class="form-group form-inline">
+                        <label for="newSex" class="col-sm-4 control-label">性別</label>
+                        <div class="col-sm-8">
+                            <input type="radio" name="sex" value="1">男性
+                            <input type="radio" name="sex" value="2">女性
+                          </select>
+                        </div>
+                      </div>
+                    </form>
+                  </div>
+                  <div class="modal-footer">
+                    <button type="button" class="btn">変更を保存</button>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <!-- ページ番号 -->
+            <div class="pagenumber">
+              <nav aria-label="Page navigation example">
+                <ul class="pagination justify-content-center">
+                  <li class="page-item">
+                    <a class="page-link" href="#" aria-label="Previous">
+                      <span aria-hidden="true">&laquo;</span>
+                      <span class="sr-only">Previous</span>
+                    </a>
+                  </li>
+                  <li class="active"><a class="page-link" href="#">1</a></li>
+                  <li class="page-item"><a class="page-link" href="#">2</a></li>
+                  <li class="page-item"><a class="page-link" href="#">3</a></li>
+                  <li class="page-item"><a class="page-link" href="#">4</a></li>
+                  <li class="page-item"><a class="page-link" href="#">5</a></li>
+                  <li class="page-item"><a class="page-link" href="#">6</a></li>
+                  <li class="page-item"><a class="page-link" href="#">7</a></li>
+                  <li class="page-item"><a class="page-link" href="#">8</a></li>
+                  <li class="page-item"><a class="page-link" href="#">9</a></li>
+                  <li class="page-item"><a class="page-link" href="#">10</a></li>
+                  <li class="page-item">
+                    <a class="page-link" href="#" aria-label="Next">
+                      <span aria-hidden="true">&raquo;</span>
+                      <span class="sr-only">Next</span>
+                    </a>
+                  </li>
+                </ul>
+              </nav>
+            </div>
+
+
+          </div>
+        </div>
+      </div>
+    </main>
+
+
+
+
+
+  </body>
+</html>
