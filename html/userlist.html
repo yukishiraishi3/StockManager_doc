@@ -29,7 +29,7 @@
           <h2 class="mx-3 my-0">ユーザー一覧</h2>
         </div>
         <ul class="nav navbar-nav">
-          <form class="form-inline mx-3"><li>ユーザー名:<a href="#">ユーザー切替</a></li></form>
+          <form class="form-inline mx-3"><li>ユーザー名:<a href="#">ログアウト</a></li></form>
         </ul>
       </nav>
     </header>
@@ -145,7 +145,7 @@
                       </div>
 
                       <div class="form-group form-inline">
-                        <label type="Password" for="newPassword" class="syainNo col-sm-4 control-label" name="Password">パスワード</label>
+                        <label type="Password" for="newPassword" class="syainNo col-sm-4 control-label" >パスワード</label>
                         <div class="col-sm-8">
                           <input type="text" class="form-control modal-width mb-3">
                         </div>
@@ -180,8 +180,13 @@
                       </div>
                     </form>
                   </div>
-                  <div class="modal-footer">
-                    <button type="button" class="btn bg-primary text-white">登録</button>
+                  <div class="modal-footer multi_stage">
+                    <div id="alert" class="alert alert-danger align-left" role="alert">
+                      <strong>error</strong> - 不足項目を入力してください
+                    </div>
+
+
+                    <button type="button" class="btn bg-primary text-white float-right">登録</button>
                   </div>
                 </div>
               </div>
