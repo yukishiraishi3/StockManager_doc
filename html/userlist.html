@@ -26,7 +26,9 @@
     <header>
       <nav  class="navbar navbar-default px-0 app-header mb-2">
         <div class="navbar-header ">
-          <h2 class="mx-3 my-0">ユーザー一覧</h2>
+          <h2 class="mx-3 my-0">
+            <a href="userlist.html" class="">ユーザー一覧</a>
+          </h2>
         </div>
         <ul class="nav navbar-nav">
           <form class="form-inline mx-3"><li>ユーザー名:<a href="#">ログアウト</a></li></form>
@@ -338,28 +340,28 @@
                       <div class="form-group form-inline">
                         <label for="newName" class="col-sm-4 control-label">名前</label>
                         <div class="col-sm-8">
-                          <input type="text" class="form-control modal-width mb-3">
+                          <input type="text" value="山田太郎" class="form-control modal-width mb-3">
                         </div>
                       </div>
 
                       <div class="form-group form-inline">
                         <label for="newHurigana" class="col-sm-4 control-label">ふりがな</label>
                         <div class="col-sm-8">
-                          <input type="text" class="form-control modal-width mb-3">
+                          <input type="text"　value="やまだたろう" class="form-control modal-width mb-3">
                         </div>
                       </div>
 
                       <div class="form-group form-inline">
                         <label for="newNo" class="col-sm-4 control-label">社員番号</label>
                         <div class="col-sm-8">
-                          <input type="text" class="form-control modal-width mb-3">
+                          <input type="text" value="0001"  class="form-control modal-width mb-3">
                         </div>
                       </div>
 
                       <div class="form-group form-inline">
                         <label for="newTelNo" class="col-sm-4 control-label">電話番号</label>
                         <div class="col-sm-8">
-                          <input pattern="\d{2,4}-\d{3,4}-\d{3,4}" type="text" class="form-control modal-width mb-3">
+                          <input pattern="\d{2,4}-\d{3,4}-\d{3,4}" type="text" value="000-0000-0001"  class="form-control modal-width mb-3">
                         </div>
                       </div>
 
@@ -368,7 +370,7 @@
                         <div class="col-sm-8">
                           <select id="newDivision" class="form-control modal-width mb-3 p-0">
                             <option>所属部署を選択してください</option>
-                            <option>経理部</option>
+                            <option selected>経理部</option>
                             <option>人事部</option>
                             <option>企業総括部</option>
                           </select>
@@ -385,8 +387,11 @@
                       </div>
                     </form>
                   </div>
-                  <div class="modal-footer">
-                    <button type="button" class="btn">変更を保存</button>
+                  <div class="modal-footer multi_stage">
+                    <div id="alert" class="alert alert-danger align-left" role="alert">
+                      <strong>エラー</strong> - 必須項目を入力してください
+                     </div>
+                    <button type="button" class="btn bg-primary text-white float-right">変更を保存</button>
                   </div>
                 </div>
               </div>
